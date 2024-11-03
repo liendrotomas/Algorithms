@@ -1,0 +1,12 @@
+version: '3.8'  # Specify the Docker Compose file format version
+
+services:
+  app:  # Name of the service
+    build:
+      context: .  # Path to the Dockerfile
+      dockerfile: Dockerfile  # Name of the Dockerfile (if different)
+    image: search:latest
+    working_dir: /app
+    volumes:
+      - .:/app  # Mount the current directory to /app in the container
+    command: python search.py  # Command to run your application
